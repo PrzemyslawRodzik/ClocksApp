@@ -1,0 +1,17 @@
+{
+  "name": "Clocks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "clocks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
+  }
+}
