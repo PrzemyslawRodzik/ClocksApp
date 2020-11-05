@@ -13,4 +13,3 @@ Komenda umożliwiająca pobranie utworzonego obrazu:
 ```sh
 $ docker pull przemr/clocksapp
 ```
-automatyczne
