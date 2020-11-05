@@ -11,5 +11,5 @@ $ git push https://github.com/PrzemyslawRodzik/ClocksApp
 ```
 Komenda umożliwiająca pobranie utworzonego obrazu:
 ```sh
-$ docker pull przemr/clocksapp
+$  docker pull przemr/clocksapp
 ```
