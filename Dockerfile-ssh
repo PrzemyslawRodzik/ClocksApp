@@ -1,0 +1,22 @@
+# syntax=docker/dockerfile:experimental
+FROM alpine as pre-build
+# install ssh client and git
+RUN apk add --no-cache openssh-client git
+# download public key for github.com
+RUN mkdir -p -m 0600 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
+# clone our private repository
+RUN --mount=type=ssh,id=repo1 git clone git@github.com:PrzemyslawRodzik/ClocksApp.git
+ 
+# First stage, build the application
+FROM node:lts-alpine as build-stage
+WORKDIR /app
+COPY --from=pre-build /ClocksApp/ ./
+RUN npm install
+RUN npm run build
+COPY *.html *.conf ./dist/
+
+FROM nginx:alpine
+LABEL author="Przemyslaw Rodzik"
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD [ "nginx", "-g", "daemon off;" ]
