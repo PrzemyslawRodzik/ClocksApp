@@ -2,5 +2,5 @@
 ## Budowa obrazu docker 
 
 ```sh
-$ docker build https://github.com/PrzemyslawRodzik/ClocksApp.git
+$  docker build https://github.com/PrzemyslawRodzik/ClocksApp.git
 ```
